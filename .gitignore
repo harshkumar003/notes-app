@@ -1,0 +1,16 @@
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Windows
+Thumbs.db
+
+# Mac
+.DS_Store
+
+# Environment
+.env
+application-local.properties
