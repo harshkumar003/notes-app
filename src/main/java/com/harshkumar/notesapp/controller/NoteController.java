@@ -3,9 +3,11 @@ package com.harshkumar.notesapp.controller;
 import com.harshkumar.notesapp.entity.Note;
 import com.harshkumar.notesapp.repository.NoteRepository;
 import com.harshkumar.notesapp.service.NoteService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/notes")
@@ -28,6 +30,15 @@ public class NoteController {
 
     //Note: @RequestBody converts the JSON sent by user into a Java object ie Note note in this case
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Note> getNoteById(@PathVariable Long id){
+        Optional<Note> note = noteService.getNoteById(id);
 
+        if(note.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(note.get());
+    }
 
 }
