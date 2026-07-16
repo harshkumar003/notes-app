@@ -2,6 +2,7 @@ package com.harshkumar.notesapp.controller;
 
 import com.harshkumar.notesapp.entity.Note;
 import com.harshkumar.notesapp.service.NoteService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,7 @@ public class NoteController {
     }
 
     @PostMapping
-    public Note createNote(@RequestBody Note note) {
+    public Note createNote(@Valid @RequestBody Note note) {
         return noteService.saveNote(note);
     }
 

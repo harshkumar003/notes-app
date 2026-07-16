@@ -1,6 +1,7 @@
 package com.harshkumar.notesapp.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="notes")
@@ -10,6 +11,7 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank
     private String title;
 
     private String content;
